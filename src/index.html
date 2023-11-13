@@ -10,14 +10,30 @@
     <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
     <!-- index.js -->
     <script src="./index.js"></script>
+    <script>
+        window.addEventListener("keydown", (e) => {
+            let keyEvents = {
+                "f": function freeHandDrawing() {
+                  console.log("freeHandDrawing");
+                },
+                "s": function regionSelection() {
+                  console.log("regionSelection");
+                },
+                "c": function regionCopy() {
+                  console.log("regionCopy");
+                },
+                "v": function regionPaste() {
+                  console.log("regionPaste");
+                }
+            }
+            let event = keyEvents[e.key];
+            if(event) event();
+            e.preventDefault();
+        })
+    </script>
 </head>
 
 <body>
-    <script>
-        // Your code will go here
-        // open up your console - if everything loaded properly you should see the correct version number
-        console.log('ml5 version:', ml5.version);
-    </script>
     <button onclick="setup()">Set up</button>
 </body>
 </html>
